@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.Yasvanth | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playwrite NL', cursive;
+            transition: 0.3s;
+        }
+
+        :root {
+            --bg: #0d1222;
+            --card: #141b2f;
+            --text: #f5f5f5;
+            --secondary: #b8bfd2;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+
+        body.light {
+            --bg: #f2f5ff;
+            --card: #ffffff;
+            --text: #111;
+            --secondary: #555;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            background: radial-gradient(circle at top left, #1f3566, var(--bg));
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .theme-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 55px;
+            height: 55px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 22px;
+            background: transparent;
+            color: var(--text);
+            box-shadow: 0 0 20px var(--shadow);
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 56px;
+            margin-bottom: 10px;
+            font-family: Georgia, serif;
+        }
+
+        .subtitle {
+            color: var(--secondary);
+            margin-bottom: 35px;
+            font-size: 20px;
+        }
+
+        .content {
+            text-align: left;
+            line-height: 1.8;
+            font-size: 20px;
+            color: var(--secondary);
+        }
+
+        .content p {
+            margin-bottom: 22px;
+        }
+
+        .links {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            /* logo close to the word */
+        }
+
+        .links a:hover {
+            transform: translateY(-4px);
+        }
+
+        .links img {
+            height: 30px;
+            /* slightly smaller so it sits nicely with text */
+            width: 30px;
+            display: block;
+        }
+
+        .bottom {
+            margin-top: 40px;
+            color: var(--secondary);
+            font-size: 18px;
+        }
+
+        @media(max-width:700px) {
+            h1 {
+                font-size: 40px;
+            }
+
+            .content {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="theme-btn" onclick="toggleTheme()" id="themeButton">🌙</button>
+
+    <div class="container">
+        <img src="assets/photograph.jpg" id="profileImage" class="profile-pic" alt="Profile">
+
+        <div class="name">
+            <h1>B.Yasvanth</h1>
+        </div>
+
+        <div class="subtitle">
+            First-Year Computer Science Student
+        </div>
+
+        <div class="content">
+            <p>
+                Hi, I'm 18 year old a first-year college student at Chandigarh University passionate about programming,
+                AI, web development and open-source projects.
+            </p>
+
+            <p>
+                Outside academics, I quite enjoy building personal projects, playing football, and swimming, while also
+                participating in various activities that help me grow. I love learning new technologies, exploring the
+                latest tech trends, and reading about emerging innovations, and in my free time, I enjoy watching anime
+                to relax and unwind.
+            </p>
+
+            <p>
+                I'm always open to collaborations and exciting opportunities.
+            </p>
+        </div>
+
+        <div class="links">
+            <a href="blog.html" target="_blank">Blog</a>
+
+            <a href="https://www.linkedin.com/in/b-yasvanth-0ab080406/" target="_blank">
+                <img src="assets/linkedin-brands-solid.png" alt="LinkedIn">
+                LinkedIn
+            </a>
+
+            <a href="https://github.com/yasvanth-coder" target="_blank">
+                <img src="assets/github-brands-solid.png" alt="GitHub">
+                GitHub
+            </a>
+        </div>
+
+        <div class="bottom">
+            India · <span id="time"></span>
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle("light");
+            const button = document.getElementById("themeButton");
+            button.innerHTML = document.body.classList.contains("light") ? "🔆" : "🌙";
+        }
+
+        function updateTime() {
+            const now = new Date();
+            document.getElementById("time").textContent =
+                now.toLocaleTimeString("en-IN", {
+                    hour: "2-digit",
+                    minute: "2-digit"
+                });
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+
+</body>
+
+</html>
